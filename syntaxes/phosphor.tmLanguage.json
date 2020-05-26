@@ -3,7 +3,174 @@
     "name": "Phosphor",
     "scopeName": "source.ph",
     "patterns": [
+        {
+            "include": "#function-declaration"
+        },
+        {
+            "include": "#section"
+        }
     ],
     "repository": {
+        "function-declaration": {
+            "patterns": [
+                {
+                    "begin": "\\b(function)\\s+([a-zA-Z]+)\\s*",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.other.function.phosphor"
+                        },
+                        "2": {
+                            "name": "entity.name.function.phosphor"
+                        }
+                    },
+                    "end": "(?=\\{)",
+                    "patterns": [
+                        {
+                            "include": "#function-parameters"
+                        },
+                        {
+                            "include": "#type-clause"
+                        }
+                    ]
+                }
+            ]
+        },
+        "function-parameters": {
+            "name": "meta.parameter.phosphor",
+            "begin": "\\(",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.parameters.begin.phosphor"
+                }
+            },
+            "end": "\\)",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.parameters.end.phosphor"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#function-parameters-body"
+                }
+            ]
+        },
+        "function-parameters-body": {
+            "patterns": [
+                {
+                    "include": "#parameter-name"
+                },
+                {
+                    "include": "#type-clause"
+                },
+                {
+                    "name": "punctuation.separator.parameter.ts",
+                    "match": ","
+                }
+            ]
+        },
+        "parameter-name": {
+            "patterns": [
+                {
+                    "match": "\\b([a-zA-Z]+)(?=\\s*:)",
+                    "captures": {
+                        "1": {
+                            "name": "variable.parameter.phosphor"
+                        }
+                    }
+                }
+            ]
+        },
+        "type-clause": {
+            "patterns": [
+                {
+                    "name": "meta.type.annotation.phosphor",
+                    "begin": "(:)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.operator.type.annotation.phosphor"
+                        }
+                    },
+                    "end": "[,;]|(?=\\))|(?=\\{)",
+                    "patterns": [
+                        {
+                            "include": "#type-name"
+                        }
+                    ]
+                }
+            ]
+        },
+        "type-name": {
+            "patterns": [
+                {
+                    "match": "\\b([a-zA-Z]+)\\b",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.type.phosphor"
+                        }
+                    }
+                }
+            ]
+        },
+        "section": {
+            "name": "entity.name.section.phosphor",
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.section.begin.phosphor"
+                }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.section.end.phosphor"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#section"
+                },
+                {
+                    "include": "#keyword"
+                },
+                {
+                    "include": "#string"
+                },
+                {
+                    "include": "#decimal"
+                }
+            ]
+        },
+        "keyword": {
+            "patterns": [
+                {
+                    "name": "keyword.control.phosphor",
+                    "match": "\\b(var|if|else|return)\\b"
+                }
+            ]
+        },
+        "string": {
+            "name": "string.quoted.single.phosphor",
+            "begin": "'",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.begin.phosphor"
+                }
+            },
+            "end": "'",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.end.phosphor"
+                }
+            }
+        },
+        "decimal": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.decimal.phosphor",
+                    "match": "[0-9]+"
+                }
+            ]
+        }
     }
 }
