@@ -1,0 +1,29 @@
+{
+    "name": "vscode-phosphor",
+    "displayName": "Phosphor",
+    "description": "Phosphor for Visual Studio Code",
+    "version": "0.1.0",
+    "engines": {
+        "vscode": "^1.45.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "phosphor",
+                "aliases": ["Phosphor", "phosphor"],
+                "extensions": [".ph",".phosphor"],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "phosphor",
+                "scopeName": "source.ph",
+                "path": "./syntaxes/phosphor.tmLanguage.json"
+            }
+        ]
+    }
+}
