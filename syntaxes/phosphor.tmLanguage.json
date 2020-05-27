@@ -5,125 +5,97 @@
     "patterns": [
         {
             "include": "#function-declaration"
-        },
-        {
-            "include": "#section"
         }
     ],
     "repository": {
         "function-declaration": {
-            "patterns": [
-                {
-                    "begin": "\\b(function)\\s+([a-zA-Z]+)\\s*",
-                    "beginCaptures": {
-                        "1": {
-                            "name": "keyword.other.function.phosphor"
-                        },
-                        "2": {
-                            "name": "entity.name.function.phosphor"
-                        }
-                    },
-                    "end": "(?=\\{)",
-                    "patterns": [
-                        {
-                            "include": "#function-parameters"
-                        },
-                        {
-                            "include": "#type-clause"
-                        }
-                    ]
-                }
-            ]
-        },
-        "function-parameters": {
-            "name": "meta.parameter.phosphor",
-            "begin": "\\(",
+            "begin": "\\bfunction\\b",
             "beginCaptures": {
                 "0": {
-                    "name": "punctuation.definition.parameters.begin.phosphor"
+                    "name": "keyword.other.function.ph"
                 }
             },
-            "end": "\\)",
-            "endCaptures": {
-                "0": {
-                    "name": "punctuation.definition.parameters.end.phosphor"
-                }
-            },
+            "end": "(?<=\\})",
             "patterns": [
                 {
-                    "include": "#function-parameters-body"
-                }
-            ]
-        },
-        "function-parameters-body": {
-            "patterns": [
+                    "name": "entity.name.function.ph",
+                    "match": "\\b[a-zA-Z_]+\\b"
+                },
                 {
-                    "include": "#parameter-name"
+                    "include": "#function-parameters"
                 },
                 {
                     "include": "#type-clause"
                 },
                 {
-                    "name": "punctuation.separator.parameter.ts",
-                    "match": ","
+                    "include": "#section"
                 }
             ]
         },
-        "parameter-name": {
+        "function-parameters": {
+            "name": "meta.parameter.ph",
+            "begin": "\\(",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.parameters.begin.ph"
+                }
+            },
+            "end": "\\)",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.parameters.end.ph"
+                }
+            },
             "patterns": [
                 {
-                    "match": "\\b([a-zA-Z]+)(?=\\s*:)",
-                    "captures": {
-                        "1": {
-                            "name": "variable.parameter.phosphor"
-                        }
-                    }
+                    "name": "variable.parameter.ph",
+                    "match": "\\b[a-zA-Z_]+\\b"
+                },
+                {
+                    "include": "#type-clause"
+                },
+                {
+                    "name": "punctuation.separator.parameter.ph",
+                    "match": ","
                 }
             ]
         },
         "type-clause": {
             "patterns": [
                 {
-                    "name": "meta.type.annotation.phosphor",
-                    "begin": "(:)",
+                    "name": "meta.type.annotation.ph",
+                    "begin": ":",
                     "beginCaptures": {
-                        "1": {
-                            "name": "keyword.operator.type.annotation.phosphor"
+                        "0": {
+                            "name": "keyword.operator.type.annotation.ph"
                         }
                     },
-                    "end": "[,;]|(?=\\))|(?=\\{)",
+                    "end": "(?=[,;){])",
                     "patterns": [
                         {
-                            "include": "#type-name"
+                            "name": "keyword.operator.type.annotation.ph",
+                            "match": ":"
+                        },
+                        {
+                            "name": "entity.name.type.ph",
+                            "match": "\\b[a-zA-Z_]+\\b"
                         }
                     ]
                 }
             ]
         },
-        "type-name": {
-            "patterns": [
-                {
-                    "match": "\\b([a-zA-Z]+)\\b",
-                    "captures": {
-                        "1": {
-                            "name": "entity.name.type.phosphor"
-                        }
-                    }
-                }
-            ]
-        },
         "section": {
-            "name": "entity.name.section.phosphor",
+            "name": "entity.name.section.ph",
             "begin": "\\{",
             "beginCaptures": {
                 "0": {
-                    "name": "punctuation.definition.section.begin.phosphor"
+                    "name": "punctuation.definition.section.begin.ph"
                 }
             },
             "end": "\\}",
             "endCaptures": {
                 "0": {
-                    "name": "punctuation.definition.section.end.phosphor"
+                    "name": "punctuation.definition.section.end.ph"
                 }
             },
             "patterns": [
@@ -132,6 +104,12 @@
                 },
                 {
                     "include": "#keyword"
+                },
+                {
+                    "include": "#function-call"
+                },
+                {
+                    "include": "#variable"
                 },
                 {
                     "include": "#string"
@@ -144,30 +122,46 @@
         "keyword": {
             "patterns": [
                 {
-                    "name": "keyword.control.phosphor",
-                    "match": "\\b(var|if|else|return)\\b"
+                    "name": "keyword.control.conditional.ph",
+                    "match": "\\b(if|else)\\b"
+                },
+                {
+                    "name": "keyword.control.flow.ph",
+                    "match": "\\b(return)\\b"
+                },
+                {
+                    "name": "storage.type.ph",
+                    "match": "\\b(var)\\b"
                 }
             ]
         },
+        "function-call": {
+            "name": "entity.name.function.ph",
+            "match": "\\b[a-zA-Z_]+\\s*(?=\\()"
+        },
+        "variable": {
+            "name": "variable.other.readwrite.ph",
+            "match": "\\b[a-zA-Z_]+\\b"
+        },
         "string": {
-            "name": "string.quoted.single.phosphor",
+            "name": "string.quoted.single.ph",
             "begin": "'",
             "beginCaptures": {
                 "0": {
-                    "name": "punctuation.definition.string.begin.phosphor"
+                    "name": "punctuation.definition.string.begin.ph"
                 }
             },
             "end": "'",
             "endCaptures": {
                 "0": {
-                    "name": "punctuation.definition.string.end.phosphor"
+                    "name": "punctuation.definition.string.end.ph"
                 }
             }
         },
         "decimal": {
             "patterns": [
                 {
-                    "name": "constant.numeric.decimal.phosphor",
+                    "name": "constant.numeric.decimal.ph",
                     "match": "[0-9]+"
                 }
             ]
