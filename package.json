@@ -2,13 +2,23 @@
     "name": "vscode-phosphor",
     "displayName": "Phosphor",
     "description": "Phosphor for Visual Studio Code",
+    "author": "Benedikt Magnus",
+    "publisher": "PhosphorLang",
     "version": "0.1.0",
-    "engines": {
-        "vscode": "^1.45.0"
-    },
+    "license": "MIT",
     "categories": [
         "Programming Languages"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/PhosphorLang/vscode-phosphor"
+    },
+    "bugs": {
+        "url": "https://github.com/PhosphorLang/vscode-phosphor/issues"
+    },
+    "engines": {
+        "vscode": "^1.45.0"
+    },
     "contributes": {
         "languages": [
             {
