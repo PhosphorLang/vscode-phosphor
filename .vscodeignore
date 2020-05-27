@@ -1,3 +1,10 @@
+# VS Code:
 .vscode/**
 .vscode-test/**
+*.code-workspace
+
+# Node/npm:
+node_modules
+
+# Git:
 .gitignore
