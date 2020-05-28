@@ -133,6 +133,10 @@
                     "match": "\\b(return)\\b"
                 },
                 {
+                    "name": "keyword.control.loop.ph",
+                    "match": "\\b(while)\\b"
+                },
+                {
                     "name": "storage.type.ph",
                     "match": "\\b(var)\\b"
                 }
