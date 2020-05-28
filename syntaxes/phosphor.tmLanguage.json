@@ -106,6 +106,9 @@
                     "include": "#keyword"
                 },
                 {
+                    "include": "#boolean"
+                },
+                {
                     "include": "#function-call"
                 },
                 {
@@ -163,6 +166,18 @@
                 {
                     "name": "constant.numeric.decimal.ph",
                     "match": "[0-9]+"
+                }
+            ]
+        },
+        "boolean": {
+            "patterns": [
+                {
+                    "name": "constant.language.boolean.true.ph",
+                    "match": "\\b(true)\\b"
+                },
+                {
+                    "name": "constant.language.boolean.false.ph",
+                    "match": "\\b(false)\\b"
                 }
             ]
         }
