@@ -118,7 +118,7 @@
                     "include": "#string"
                 },
                 {
-                    "include": "#decimal"
+                    "include": "#number"
                 }
             ]
         },
@@ -161,7 +161,7 @@
                 }
             }
         },
-        "decimal": {
+        "number": {
             "patterns": [
                 {
                     "name": "constant.numeric.decimal.ph",
