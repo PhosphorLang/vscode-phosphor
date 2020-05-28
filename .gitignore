@@ -1,6 +1,7 @@
 # IDE/Editor specific:
 .vscode
 *.code-workspace
+*.vsix
 
 # Node/npm:
 node_modules

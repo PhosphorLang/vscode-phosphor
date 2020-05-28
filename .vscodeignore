@@ -2,6 +2,7 @@
 .vscode/**
 .vscode-test/**
 *.code-workspace
+*.vsix
 
 # Node/npm:
 node_modules
