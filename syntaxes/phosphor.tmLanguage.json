@@ -5,9 +5,16 @@
     "patterns": [
         {
             "include": "#function-declaration"
+        },
+        {
+            "include": "#function-modifiers"
         }
     ],
     "repository": {
+        "function-modifiers": {
+            "name": "storage.modifier.external.ph",
+            "match": "\\b(external)\\b"
+        },
         "function-declaration": {
             "begin": "\\bfunction\\b",
             "beginCaptures": {
@@ -15,7 +22,7 @@
                     "name": "keyword.other.function.ph"
                 }
             },
-            "end": "(?<=\\})",
+            "end": "(?<=\\}|;)",
             "patterns": [
                 {
                     "name": "entity.name.function.ph",
