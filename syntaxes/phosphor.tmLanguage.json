@@ -8,9 +8,26 @@
         },
         {
             "include": "#function-modifiers"
+        },
+        {
+            "include": "#import"
         }
     ],
     "repository": {
+        "import": {
+            "begin": "\\bimport\\b",
+            "beginCaptures": {
+                "0": {
+                    "name": "storage.modifier.import.ph"
+                }
+            },
+            "end": "(?<=\\;)",
+            "patterns": [
+                {
+                    "include": "#string"
+                }
+            ]
+        },
         "function-modifiers": {
             "name": "storage.modifier.external.ph",
             "match": "\\b(external)\\b"
