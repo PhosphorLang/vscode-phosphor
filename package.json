@@ -25,7 +25,11 @@
                 "id": "phosphor",
                 "aliases": ["Phosphor", "phosphor"],
                 "extensions": [".ph",".phosphor"],
-                "configuration": "./language-configuration.json"
+                "configuration": "./language-configuration.json",
+                "icon": {
+                    "dark": "./icons/icon.svg",
+                    "light": "./icons/icon.svg"
+                }
             }
         ],
         "grammars": [
