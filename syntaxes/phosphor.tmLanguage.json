@@ -4,6 +4,9 @@
     "scopeName": "source.ph",
     "patterns": [
         {
+            "include": "#comments"
+        },
+        {
             "include": "#function-declaration"
         },
         {
@@ -34,6 +37,9 @@
                     "include": "#type-clause"
                 },
                 {
+                    "include": "#comments"
+                },
+                {
                     "include": "#section"
                 }
             ]
@@ -53,6 +59,9 @@
             "patterns": [
                 {
                     "include": "#string"
+                },
+                {
+                    "include": "#comments"
                 }
             ]
         },
@@ -81,6 +90,9 @@
                 {
                     "name": "punctuation.separator.parameter.ph",
                     "match": ","
+                },
+                {
+                    "include": "#comments"
                 }
             ]
         },
@@ -103,6 +115,9 @@
                         {
                             "name": "entity.name.type.ph",
                             "match": "\\b[a-zA-Z_]+\\b"
+                        },
+                        {
+                            "include": "#comments"
                         }
                     ]
                 }
@@ -143,6 +158,28 @@
                 },
                 {
                     "include": "#number"
+                },
+                {
+                    "include": "#comments"
+                }
+            ]
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.ph",
+                    "begin": "//",
+                    "end": "$"
+                },
+                {
+                    "name": "comment.block.ph",
+                    "begin": "/\\*(?!\\*)",
+                    "end": "\\*/"
+                },
+                {
+                    "name": "comment.block.documentation.ph",
+                    "begin": "/\\*\\*",
+                    "end": "\\*/"
                 }
             ]
         },
