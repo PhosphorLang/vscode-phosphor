@@ -4,7 +4,7 @@
     "description": "Phosphor for Visual Studio Code",
     "author": "Benedikt Magnus",
     "publisher": "PhosphorLang",
-    "version": "0.6.0",
+    "version": "0.6.0-dev",
     "license": "MIT",
     "categories": [
         "Programming Languages"
