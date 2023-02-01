@@ -7,6 +7,9 @@
             "include": "#comments"
         },
         {
+            "include": "#class-declaration"
+        },
+        {
             "include": "#function-declaration"
         },
         {
@@ -17,6 +20,53 @@
         }
     ],
     "repository": {
+        "class-declaration": {
+            "begin": "\\bclass\\b",
+            "beginCaptures": {
+                "0": {
+                    "name": "keyword.other.class.ph"
+                }
+            },
+            "end": "(?<=\\})",
+            "patterns": [
+                {
+                    "name": "entity.name.class.ph",
+                    "match": "\\b[a-zA-Z_]+\\b"
+                },
+                {
+                    "include": "#comments"
+                },
+                {
+                    "include": "#class-body"
+                }
+            ]
+        },
+        "class-body": {
+            "name": "entity.name.section",
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.section.begin.ph"
+                }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.section.end.ph"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#comments"
+                },
+                {
+                    "include": "#function-declaration"
+                },
+                {
+                    "include": "#function-modifiers"
+                }
+            ]
+        },
         "function-declaration": {
             "begin": "\\bfunction\\b",
             "beginCaptures": {
