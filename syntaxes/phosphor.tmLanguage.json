@@ -68,7 +68,7 @@
             ]
         },
         "function-declaration": {
-            "begin": "\\bfunction\\b",
+            "begin": "\\b(?:function|method)\\b",
             "beginCaptures": {
                 "0": {
                     "name": "keyword.other.function.ph"
