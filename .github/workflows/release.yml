@@ -29,9 +29,13 @@ jobs:
         id: vars
         run: echo "RELEASE_NAME=Version ${GITHUB_REF#refs/tags/version/}" >> $GITHUB_ENV
 
+      - name: Extract latest changelog
+        run: awk '/## \[/{if (x) {exit}; {x=1}; next} /^-/ {if (NR > 1) {print}}' CHANGELOG.md > release_body_file.txt
+
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
+          body_path: 'release_body_file.txt'
           files: '*.vsix'
           name: ${{ env.RELEASE_NAME }}
         env:
