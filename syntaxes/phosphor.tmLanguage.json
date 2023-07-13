@@ -105,8 +105,8 @@
             ]
         },
         "function-modifiers": {
-            "name": "storage.modifier.external.ph",
-            "match": "\\b(external)\\b"
+            "name": "storage.modifier.header.ph",
+            "match": "\\b(header)\\b"
         },
         "function-parameters": {
             "name": "meta.parameter.ph",
