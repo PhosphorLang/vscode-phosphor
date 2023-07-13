@@ -105,8 +105,28 @@
             ]
         },
         "function-modifiers": {
-            "name": "storage.modifier.header.ph",
-            "match": "\\b(header)\\b"
+            "patterns": [
+                {
+                    "name": "storage.modifier.header.ph",
+                    "match": "\\b(header)\\b"
+                },
+                {
+                    "name": "storage.modifier.internal.ph",
+                    "match": "\\b(internal)\\b"
+                },
+                {
+                    "name": "storage.modifier.private.ph",
+                    "match": "\\b(private)\\b"
+                },
+                {
+                    "name": "storage.modifier.protected.ph",
+                    "match": "\\b(protected)\\b"
+                },
+                {
+                    "name": "storage.modifier.public.ph",
+                    "match": "\\b(public)\\b"
+                }
+            ]
         },
         "function-parameters": {
             "name": "meta.parameter.ph",
