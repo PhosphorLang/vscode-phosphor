@@ -7,19 +7,40 @@
             "include": "#comments"
         },
         {
+            "include": "#module-declaration"
+        },
+        {
             "include": "#class-declaration"
+        },
+        {
+            "include": "#import"
         },
         {
             "include": "#function-declaration"
         },
         {
             "include": "#function-modifiers"
-        },
-        {
-            "include": "#import"
         }
     ],
     "repository": {
+        "module-declaration": {
+            "begin": "\\bmodule\\b",
+            "beginCaptures": {
+                "0": {
+                    "name": "keyword.other.module.ph"
+                }
+            },
+            "end": "(?<=\\;)",
+            "patterns": [
+                {
+                    "name": "entity.name.type.module.ph",
+                    "match": "\\b[a-zA-Z_.]+\\b"
+                },
+                {
+                    "include": "#comments"
+                }
+            ]
+        },
         "class-declaration": {
             "begin": "\\bclass\\b",
             "beginCaptures": {
@@ -27,43 +48,32 @@
                     "name": "keyword.other.class.ph"
                 }
             },
-            "end": "(?<=\\})",
+            "end": "(?<=\\;)",
             "patterns": [
                 {
-                    "name": "entity.name.class.ph",
-                    "match": "\\b[a-zA-Z_]+\\b"
+                    "name": "entity.name.type.class.ph",
+                    "match": "\\b[a-zA-Z_.]+\\b"
                 },
                 {
                     "include": "#comments"
-                },
-                {
-                    "include": "#class-body"
                 }
             ]
         },
-        "class-body": {
-            "name": "entity.name.section",
-            "begin": "\\{",
+        "import": {
+            "begin": "\\bimport\\b",
             "beginCaptures": {
                 "0": {
-                    "name": "punctuation.definition.section.begin.ph"
+                    "name": "keyword.other.import.ph"
                 }
             },
-            "end": "\\}",
-            "endCaptures": {
-                "0": {
-                    "name": "punctuation.definition.section.end.ph"
-                }
-            },
+            "end": "(?<=\\;)",
             "patterns": [
                 {
+                    "name": "entity.name.type.namespace.ph",
+                    "match": "\\b[a-zA-Z_.]+\\b"
+                },
+                {
                     "include": "#comments"
-                },
-                {
-                    "include": "#function-declaration"
-                },
-                {
-                    "include": "#function-modifiers"
                 }
             ]
         },
@@ -97,23 +107,6 @@
         "function-modifiers": {
             "name": "storage.modifier.external.ph",
             "match": "\\b(external)\\b"
-        },
-        "import": {
-            "begin": "\\bimport\\b",
-            "beginCaptures": {
-                "0": {
-                    "name": "storage.modifier.import.ph"
-                }
-            },
-            "end": "(?<=\\;)",
-            "patterns": [
-                {
-                    "include": "#string"
-                },
-                {
-                    "include": "#comments"
-                }
-            ]
         },
         "function-parameters": {
             "name": "meta.parameter.ph",
