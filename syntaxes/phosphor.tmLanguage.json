@@ -34,7 +34,7 @@
             "patterns": [
                 {
                     "name": "entity.name.type.module.ph",
-                    "match": "\\b[a-zA-Z_.]+\\b"
+                    "match": "\\b[a-zA-Z_]+\\b"
                 },
                 {
                     "include": "#comments"
@@ -52,7 +52,7 @@
             "patterns": [
                 {
                     "name": "entity.name.type.class.ph",
-                    "match": "\\b[a-zA-Z_.]+\\b"
+                    "match": "\\b[a-zA-Z_]+\\b"
                 },
                 {
                     "include": "#comments"
