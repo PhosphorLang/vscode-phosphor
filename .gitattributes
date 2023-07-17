@@ -1,1 +1,4 @@
+# Force .ph files to be recognised as Phosphor instead of Perl:
+*.ph linguist-language=Phosphor
+
 *.svg binary
