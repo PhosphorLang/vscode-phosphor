@@ -69,8 +69,12 @@
             "end": "(?<=\\;)",
             "patterns": [
                 {
+                    "name": "keyword.other.import.as.ph",
+                    "match": "\\s(as)\\s"
+                },
+                {
                     "name": "entity.name.type.namespace.ph",
-                    "match": "\\b[a-zA-Z_.]+\\b"
+                    "match": "\\b[a-zA-Z_]+\\b"
                 },
                 {
                     "include": "#comments"
