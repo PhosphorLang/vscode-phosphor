@@ -5,6 +5,14 @@ All notable changes to the "vscode-phosphor" extension will be documented in thi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2023-07-17
+
+- Class highlighting updated.
+- Import highlighting updated.
+- Syntax highlighting for modules
+- Syntax highlighting for access modifiers
+- Keyword "external" renamed to "header".
+
 ## [0.6.0] - 2023-02-01
 
 - Syntax highlighting for classes
