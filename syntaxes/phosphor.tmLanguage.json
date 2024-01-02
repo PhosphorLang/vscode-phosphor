@@ -16,6 +16,9 @@
             "include": "#import"
         },
         {
+            "include": "#variable-declaration"
+        },
+        {
             "include": "#function-declaration"
         },
         {
@@ -209,22 +212,34 @@
                     "include": "#section"
                 },
                 {
-                    "include": "#keyword"
+                    "include": "#control-flow"
                 },
                 {
-                    "include": "#boolean"
+                    "include": "#variable-declaration"
                 },
                 {
-                    "include": "#function-call"
+                    "include": "#expressions"
                 },
                 {
-                    "include": "#variable"
+                    "include": "#comments"
+                }
+            ]
+        },
+        "variable-declaration": {
+            "begin": "\\b(?:let|field)\\b",
+            "beginCaptures": {
+                "0": {
+                    "name": "storage.type.ph"
+                }
+            },
+            "end": "(?<=\\;)",
+            "patterns": [
+                {
+                    "name": "storage.modifier.ph",
+                    "match": "\\b(variable)\\b"
                 },
                 {
-                    "include": "#string"
-                },
-                {
-                    "include": "#number"
+                    "include": "#expressions"
                 },
                 {
                     "include": "#comments"
@@ -250,7 +265,7 @@
                 }
             ]
         },
-        "keyword": {
+        "control-flow": {
             "patterns": [
                 {
                     "name": "keyword.control.conditional.ph",
@@ -263,10 +278,6 @@
                 {
                     "name": "keyword.control.loop.ph",
                     "match": "\\b(while)\\b"
-                },
-                {
-                    "name": "storage.type.ph",
-                    "match": "\\b(let)\\b"
                 }
             ]
         },
@@ -310,6 +321,25 @@
                 {
                     "name": "constant.language.boolean.false.ph",
                     "match": "\\b(false)\\b"
+                }
+            ]
+        },
+        "expressions": {
+            "patterns": [
+                {
+                    "include": "#boolean"
+                },
+                {
+                    "include": "#function-call"
+                },
+                {
+                    "include": "#variable"
+                },
+                {
+                    "include": "#string"
+                },
+                {
+                    "include": "#number"
                 }
             ]
         }

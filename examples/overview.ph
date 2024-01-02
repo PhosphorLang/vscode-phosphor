@@ -3,11 +3,13 @@ module Overview.Main;
 import Standard.Io;
 import Standard.Sleep as Time;
 
+let variable globalMessage := getMessage();
+
 function main ()
 {
-    var message := getMessage();
+    let localMessage := getMessage();
 
-    writeMessage(message);
+    writeMessage(localMessage);
 
     Time.sleep(1000);
 }
