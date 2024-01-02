@@ -5,6 +5,12 @@ All notable changes to the "vscode-phosphor" extension will be documented in thi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.0] - 2024-01-02
+
+- Keyword "var" renamed to "let".
+- Syntax highlighting for module-scoped constants/variables.
+- Syntax highlighting for class-scoped fields.
+
 ## [0.7.0] - 2023-07-17
 
 - Class highlighting updated.
