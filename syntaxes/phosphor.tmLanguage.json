@@ -16,7 +16,7 @@
             "include": "#import"
         },
         {
-            "include": "#variable-declaration"
+            "include": "#module-variable-declaration"
         },
         {
             "include": "#function-declaration"
@@ -170,18 +170,14 @@
             "patterns": [
                 {
                     "name": "meta.type.annotation.ph",
-                    "begin": ":",
+                    "begin": ":(?!=)",
                     "beginCaptures": {
                         "0": {
                             "name": "keyword.operator.type.annotation.ph"
                         }
                     },
-                    "end": "(?=[,;){])",
+                    "end": "(?=[,;){]|:=)",
                     "patterns": [
-                        {
-                            "name": "keyword.operator.type.annotation.ph",
-                            "match": ":"
-                        },
                         {
                             "name": "entity.name.type.ph",
                             "match": "\\b[a-zA-Z_]+\\b"
@@ -215,7 +211,7 @@
                     "include": "#control-flow"
                 },
                 {
-                    "include": "#variable-declaration"
+                    "include": "#local-variable-declaration"
                 },
                 {
                     "include": "#expressions"
@@ -225,8 +221,8 @@
                 }
             ]
         },
-        "variable-declaration": {
-            "begin": "\\b(?:let|field)\\b",
+        "local-variable-declaration": {
+            "begin": "\\b(?:let)\\b",
             "beginCaptures": {
                 "0": {
                     "name": "storage.type.ph"
@@ -237,6 +233,33 @@
                 {
                     "name": "storage.modifier.ph",
                     "match": "\\b(variable)\\b"
+                },
+                {
+                    "include": "#type-clause"
+                },
+                {
+                    "include": "#expressions"
+                },
+                {
+                    "include": "#comments"
+                }
+            ]
+        },
+        "module-variable-declaration": {
+            "begin": "\\b(?:constant|variable|field)\\b",
+            "beginCaptures": {
+                "0": {
+                    "name": "storage.type.ph"
+                }
+            },
+            "end": "(?<=\\;)",
+            "patterns": [
+                {
+                    "name": "storage.modifier.ph",
+                    "match": "\\b(variable)\\b"
+                },
+                {
+                    "include": "#type-clause"
                 },
                 {
                     "include": "#expressions"
