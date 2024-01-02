@@ -266,7 +266,7 @@
                 },
                 {
                     "name": "storage.type.ph",
-                    "match": "\\b(var)\\b"
+                    "match": "\\b(let)\\b"
                 }
             ]
         },
