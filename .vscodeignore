@@ -4,8 +4,5 @@
 *.code-workspace
 *.vsix
 
-# Node/npm:
-node_modules
-
 # Git:
 .gitignore
