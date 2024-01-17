@@ -5,6 +5,10 @@ All notable changes to the "vscode-phosphor" extension will be documented in thi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.9.0] - 2024-01-17
+
+- Syntax highlighting for class instantiation.
+
 ## [0.8.0] - 2024-01-02
 
 - Keyword "var" renamed to "let".
