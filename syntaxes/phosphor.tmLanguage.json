@@ -347,6 +347,28 @@
                 }
             ]
         },
+        "instantiation": {
+            "begin": "\\b(new)\\b",
+            "beginCaptures": {
+                "0": {
+                    "name": "keyword.operator.new.ph"
+                }
+            },
+            "end": "(?<=\\;)",
+            "patterns": [
+                {
+                    "name": "storage.modifier.ph",
+                    "match": "\\b(variable)\\b"
+                },
+                {
+                    "name": "entity.name.type.ph",
+                    "match": "\\b[a-zA-Z_]+\\b"
+                },
+                {
+                    "include": "#comments"
+                }
+            ]
+        },
         "expressions": {
             "patterns": [
                 {
@@ -354,6 +376,9 @@
                 },
                 {
                     "include": "#function-call"
+                },
+                {
+                    "include": "#instantiation"
                 },
                 {
                     "include": "#variable"
